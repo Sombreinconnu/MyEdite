@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Studio Pro</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/joshua-gould/imagetracerjs/imagetracer_v1.2.6.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div id="app" class="h-screen flex flex-col">
+        <header class="header-main">
+            <div class="flex items-center gap-2">
+                <h1 class="text-xl font-bold tracking-tight text-white">LOGO<span class="text-indigo-400">LAB</span></h1>
+            </div>
+            <div class="flex gap-3">
+                <button @click="downloadSVG" class="btn-green">Télécharger SVG</button>
+                <button @click="generatePDF" class="btn-indigo">Exporter Charte (PDF)</button>
+            </div>
+        </header>
+
+        <div class="flex-1 flex overflow-hidden">
+            <aside class="sidebar">
+                <section>
+                    <h3>1. Importation</h3>
+                    <div class="upload-zone">
+                        <input type="file" @change="processImage" class="file-input">
+                        <p>Importer Logo (SVG, PNG, JPG)</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>2. Typographie</h3>
+                    <select v-model="selectedFont" @change="addText" class="input-field">
+                        <option value="Montserrat">Moderne (Montserrat)</option>
+                        <option value="Playfair Display">Luxe (Playfair)</option>
+                        <option value="Bebas Neue">Impact (Bebas)</option>
+                    </select>
+                    <button @click="addText" class="btn-dark">+ Ajouter Texte</button>
+                </section>
+
+                <section>
+                    <h3>3. Couleur</h3>
+                    <div class="color-picker-container">
+                        <input type="color" v-model="activeColor" @input="updateColor" class="color-box">
+                        <p>{{ activeColor.toUpperCase() }}</p>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="canvas-area">
+                <div class="canvas-wrapper">
+                    <canvas id="main-canvas"></canvas>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+    <script src="/script.js"></script>
+  </body>
+
+</html>
